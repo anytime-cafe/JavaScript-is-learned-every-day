@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javaScript The first week</title>
+</head>
+<body>
+    <script>
+      // 10.28 - 11.1
+        // 10.28 javaScript 10个基础问题
+        // 1.数组移除特定的项  array.splice(index,nmb)     
+          // 事例
+            function Splice() {
+              // 1.1.indexOf()查找指定项的下标，splice()删除该下标所对应的项
+                let array = [3,6,9]
+                let index = array.indexOf(6)
+                if(index > -1) {
+                  array.splice(index,1)
+                }
+                console.log(array) //[3,9]
+              // 1.2.删除第一个匹配项和所有匹配项
+                let arr = [3,6,9,3,6,9]
+                // 删除第一个匹配项
+                let value = 9
+                function removeItemOnce (arr,value) {
+                  let index = arr.indexOf(value)
+                  if(index > -1) {
+                    arr.splice(index,1)
+                  }
+                  return arr
+                }
+                // removeItemOnce(arr,value)
+                console.log(arr) //[3, 6, 3, 6, 9]
+                // 删除所有匹配项
+                function removeItemOnce(arr,value) {
+                  let i = 0
+                  while (i <arr.length) {
+                    if(arr[i] === value) {
+                      arr.splice(i,1)
+                    }else {
+                      ++i
+                    }
+                  }
+                }
+                removeItemOnce(arr,value)
+                console.log(arr) //[3, 6, 3, 6]
+            }
+            Splice()
+        // 2.js实现重定向 单击链接
+          // 事例
+            // 2.1模拟HTTP重定向 window.location.replace("http://stackoverflow.com")
+            // 2.2模拟单击链接 window.location.href = "http://stackoverflow.com"
+        // 3.闭包
+          // 原理：闭包是一个函数和对该函数外部作用域的引用(词法环境),词法环境是每个执行上下文（堆栈）的一部分，并且是标识符（即局部变量名称）和值之间的映射。
+    </script>
+</body>
+</html>
