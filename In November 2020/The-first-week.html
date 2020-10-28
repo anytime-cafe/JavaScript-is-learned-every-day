@@ -46,13 +46,68 @@
                 removeItemOnce(arr,value)
                 console.log(arr) //[3, 6, 3, 6]
             }
-            Splice()
+            // Splice()
         // 2.js实现重定向 单击链接
           // 事例
             // 2.1模拟HTTP重定向 window.location.replace("http://stackoverflow.com")
             // 2.2模拟单击链接 window.location.href = "http://stackoverflow.com"
         // 3.闭包
           // 原理：闭包是一个函数和对该函数外部作用域的引用(词法环境),词法环境是每个执行上下文（堆栈）的一部分，并且是标识符（即局部变量名称）和值之间的映射。
+          // 事例1
+            function fun() {
+              let x = 22
+              let inner = function() {
+                console.log(x) //23
+              }
+              x = x+1
+              return inner
+            }
+            // let f = fun()
+            // f()
+          // 事例2
+            function f1() {
+              let x = 22
+              return {
+                log() { console.log(x)},
+                increment() { x++},
+                updata(value) { x+value}
+              }
+            }
+            // let f = f1()
+            // f.log()
+        // 4.use strict(严格模式)
+          // 好处： 
+            // 1.它捕获了一些常见的编码漏洞，并抛出异常。
+            // 2.当采取相对不安全的操作(例如访问全局对象)时，它可以防止错误或抛出错误。
+            // 3.它禁用令人困惑或考虑不周到的特性。
+        // 5.检查字符串是否包含子字符串
+          // 方法：
+            // 1.ECMAScript 6 引入了string .prototype.include(IE不支持) 返回true/false
+            // 2.ECMAScript 5 引入了String.prototype.indexOf(支持) 找不到返回 -1
+          // 事例 
+            // 1.ECMAScript 6方法
+              let string = 'string'
+              let stringSon = 'ing'
+              // console.log(string.includes(stringSon))
+              // console.log(string.indexOf(stringSon) !== -1)
+        // 6.var functionName = function(){}与function name(){} 区别
+          // 前者只在到达这一行时才会定义,后者的话在周围函数或者脚本被执行(由于提升)时就定义。
+        // 7.删除对象中属性
+          // 使用delete操作符(一次删除一个对象属性)
+          // 事例
+            var obj = {
+              myProperty: 1
+            }
+            delete obj.myProperty
+            // console.log(obj)
+            // 注意:如果已删除属性的值是引用类型(对象)，而程序的另一部分仍然持有对该对象的引用，那么该对象当然不会被垃圾收集，直到对它的所有引用都消失。
+            // delete只对其描述符标记为configurable的属性有效。
+        // 8.js中 ==  和  === 区别
+          // ==运算符只比较类型转换后的值是否相等 === 比较类型和类型转换后的值是否相等其中只要一个不相同返回false
+        // 9.js中实现深拷贝
+          // 最简单 JSON.parse(JSON.stringify(object))
+        // 10.在另一个JavaScript文件中包含一个JavaScript文件
+          // 新版本 import require include
     </script>
 </body>
 </html>
