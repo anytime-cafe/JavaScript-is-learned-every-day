@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>偏移量</title>
+</head>
+<body>
+  <div style="padding: 20px; border: 1px solid black; position: absolute;">
+    <div id="offset" style="width: 100px; height: 100px; margin: 10px; background-color: red;"></div>
+  </div>
+  <script>
+    let offset = document.getElementById('offset')
+    function offset1(ele) {
+      let actualLeft  = ele.offsetLeft
+      let parent = ele.offsetParent
+      while (parent != null) {
+        actualLeft = actualLeft + parent.offsetLeft + parent.clientLeft
+        parent = parent.offsetParent
+      }
+      return actualLeft + 'px'
+    }
+    function offset2(ele){
+        var actualTop  = ele.offsetTop;
+        var parent = ele.offsetParent;
+        while (parent != null){
+            actualTop = actualTop + parent.offsetTop + parent.clientTop;
+            parent = parent.offsetParent;
+        }
+        return actualTop + 'px';
+    }
+    console.log(offset1(offset),offset2(offset))
+  </script>
+</body>
+</html>
